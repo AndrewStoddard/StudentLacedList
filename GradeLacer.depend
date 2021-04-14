@@ -208,11 +208,11 @@
 1617026951 /home/astodda2/Desktop/GradeLacer/Model/Student.h
 	<string>
 
-1617027037 source:/home/astodda2/Desktop/GradeLacer/Utils/Utils.cpp
+1618369665 source:/home/astodda2/Desktop/GradeLacer/Utils/Utils.cpp
 	"Utils.h"
 	<algorithm>
 
-1617028053 /home/astodda2/Desktop/GradeLacer/Utils/Utils.h
+1618370894 /home/astodda2/Desktop/GradeLacer/Utils/Utils.h
 	<string>
 
 1617028453 source:/home/astodda2/Desktop/GradeLacer/View/AddStudentWindow.cpp
@@ -251,10 +251,12 @@
 1617028044 source:/home/astodda2/Desktop/GradeLacer/View/OKCancelWindow.cpp
 	"OKCancelWindow.h"
 
-1618347579 source:/home/astodda2/Desktop/GradeLacer/Model/StudentLacedList.cpp
+1618369836 source:/home/astodda2/Desktop/GradeLacer/Model/StudentLacedList.cpp
 	"StudentLacedList.h"
+	"StudentNode.h"
+	"Utils.h"
 
-1618347619 /home/astodda2/Desktop/GradeLacer/Model/StudentLacedList.h
+1618369764 /home/astodda2/Desktop/GradeLacer/Model/StudentLacedList.h
 	"StudentNode.h"
 
 1618350429 /home/astodda2/Desktop/GradeLacer/Model/StudentNode.h

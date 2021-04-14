@@ -17,3 +17,21 @@ const string toUpperCase(string text)
 
     return text;
 }
+
+//
+// Converts and returns string in lower case
+//
+// @precondition none
+// @postcondition none
+//
+// @return lower case version of the string
+//
+const string toLowerCase(string text)
+{
+    transform(text.begin(), text.end(), text.begin(), ::tolower);
+    text.erase(std::remove(text.begin(), text.end(), '-'), text.end());
+
+    return text;
+}
+
+

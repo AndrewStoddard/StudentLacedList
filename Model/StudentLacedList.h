@@ -17,6 +17,10 @@ class StudentLacedList
         void SetHeadGrade(StudentNode* node);
         void SetHeadClassification(StudentNode* node);
 
+        void InsertIntoGradeLace(StudentNode* node);
+        void InsertIntoNameLace(StudentNode* node);
+        void InsertIntoClassLace(StudentNode* node);
+
         void Insert(Student* student);
 
     protected:
