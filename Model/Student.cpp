@@ -8,6 +8,7 @@ const string Student::DualEnrollment = "DUALENROLLMENT";
 const string Student::Undergrad = "UNDERGRAD";
 const string Student::Grad = "GRAD";
 const string Student::Postdoc = "POSTDOC";
+const string Student::Unknown = "UNKNOWN";
 
 //
 // Constructs a student object
@@ -77,22 +78,37 @@ bool Student::Equal(Student* student1, Student* student2)
     return toLowerCase(student1->getFirstName()) == toLowerCase(student2->getFirstName()) && toLowerCase(student1->getLastName()) == toLowerCase(student2->getLastName());
 }
 
+string Student::ClassificationToString(Student::Classification classification) {
+    string result;
+    if (classification == Student::DUALENROLLMENT) {
+        result = Student::DualEnrollment;
+    } else if (classification == Student::UNDERGRAD) {
+        result = Student::Undergrad;
+    } else if (classification == Student::GRAD) {
+        result = Student::Grad;
+    } else if (classification == Student::POSTDOC) {
+        result = Student::Postdoc;
+    } else {
+        result = Student::Unknown;
+    }
+    return result;
+}
+
 Student::Classification Student::StringToClassification(string& classification) {
     Student::Classification result;
-    if (classification == Student::DualEnrollment) {
+    if (toLowerCase(classification) == toLowerCase(Student::DualEnrollment)) {
         result = Student::DUALENROLLMENT;
-    } else if (classification == Student::Undergrad) {
+    } else if (toLowerCase(classification) == toLowerCase(Student::Undergrad)) {
         result = Student::UNDERGRAD;
-    } else if (classification == Student::Grad) {
+    } else if (toLowerCase(classification) == toLowerCase(Student::Grad)) {
         result = Student::GRAD;
-    } else if (classification == Student::Postdoc) {
+    } else if (toLowerCase(classification) == toLowerCase(Student::Postdoc)) {
         result = Student::POSTDOC;
     } else {
         result = Student::UNKNOWN;
     }
     return result;
 }
-
 
 //
 // Gets the student's grade earned

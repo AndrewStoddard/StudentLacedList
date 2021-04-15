@@ -1,5 +1,5 @@
-Andrew,Stoddard,UNDERGRAD,90
-Tony,Stark,POSTDOC,100
-Peter,parker,DUELENROLLMENT,95
-Steve,Rogers,GRAD,80
-Bucky,Barnes,GRAD,85
+Stoddard,Andrew,UNDERGRAD,90
+Stark,Tony,POSTDOC,100
+parker,Peter,DUALENROLLMENT,95
+Rogers,Steve,GRAD,80
+Barnes,Bucky,GRAD,85

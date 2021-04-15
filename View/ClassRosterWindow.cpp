@@ -147,9 +147,11 @@ void ClassRosterWindow::cbLoad(Fl_Widget* widget, void* data)
 #ifdef DIAGNOSTIC_OUTPUT
     cout << "Filename selected: " << window->getFilename() << endl;
 #endif
+    if (window->getFilename() != "") {
+        window->lacedList = window->inputReader.ReadFile(window->getFilename());
+        window->setSummaryText();
+    }
 
-    window->lacedList = window->inputReader.ReadFile(window->getFilename());
-    window->setSummaryText();
 
 }
 
@@ -241,7 +243,7 @@ void ClassRosterWindow::cbAddStudent(Fl_Widget* widget, void* data)
         Fl::wait();
     }
     Student* student = addStudent.getStudent();
-    window->lacedList.Insert(*student);
+    window->lacedList.Insert(student);
     window->setSummaryText();
 
 #ifdef DIAGNOSTIC_OUTPUT
@@ -287,9 +289,8 @@ void ClassRosterWindow::cbDeleteStudent(Fl_Widget* widget, void* data)
     }
     string firstname = deleteStudent.getFirstName();
     string lastname = deleteStudent.getLastName();
-    Student student(firstname, lastname);
 
-    window->lacedList.Delete(&student);
+    window->lacedList.Delete(firstname, lastname);
     window->setSummaryText();
 
 #ifdef DIAGNOSTIC_OUTPUT
@@ -333,33 +334,33 @@ void ClassRosterWindow::setSummaryText()
 {
     string result;
     ClassRosterWindow::SortOrder order = this->getSortOrder();
-    if (order = NAME_ASCENDING)
+    if (order == NAME_ASCENDING)
     {
-        result = this->lacedList.GetNamesAscending(*this->lacedList.GetHeadName());
+        result = this->lacedList.GetNamesAscending(this->lacedList.GetHeadName());
     }
-    else if (order = NAME_DESCENDING)
+    else if (order == NAME_DESCENDING)
     {
-        result = this->lacedList.GetNamesDescending(*this->lacedList.GetHeadName());
+        result = this->lacedList.GetNamesDescending(this->lacedList.GetHeadName());
     }
-    else if (order = CLASSIFICATION_ASCENDING)
+    else if (order == CLASSIFICATION_ASCENDING)
     {
-        result = this->lacedList.GetClassificationsAscending(*this->lacedList.GetHeadClassification());
+        result = this->lacedList.GetClassificationsAscending(this->lacedList.GetHeadClassification());
     }
-    else if (order = CLASSIFICATION_DESCENDING)
+    else if (order == CLASSIFICATION_DESCENDING)
     {
-        result = this->lacedList.GetClassificationsDescending(*this->lacedList.GetHeadClassification());
+        result = this->lacedList.GetClassificationsDescending(this->lacedList.GetHeadClassification());
     }
-    else if (order = GRADE_ASCENDING)
+    else if (order == GRADE_ASCENDING)
     {
-        result = this->lacedList.GetGradesAscending(*this->lacedList.GetHeadGrade());
+        result = this->lacedList.GetGradesAscending(this->lacedList.GetHeadGrade());
     }
-    else if (order = GRADE_DESCENDING)
+    else if (order == GRADE_DESCENDING)
     {
-        result = this->lacedList.GetGradesDescending(*this->lacedList.GetHeadGrade());
+        result = this->lacedList.GetGradesDescending(this->lacedList.GetHeadGrade());
     }
     else
     {
-        result = this->lacedList.GetNamesAscending(*this->lacedList.GetHeadName());
+        result = this->lacedList.GetNamesAscending(this->lacedList.GetHeadName());
     }
 
 
@@ -402,6 +403,7 @@ ClassRosterWindow::~ClassRosterWindow()
     delete this->saveButton;
     delete this->addButton;
     delete this->deleteButton;
+
 }
 
 }

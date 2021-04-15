@@ -17,7 +17,7 @@ class FileInputReader
     protected:
 
     private:
-        Student readStudentFromCSVString(string& line);
+        Student* readStudentFromCSVString(string& line);
 
 };
 }

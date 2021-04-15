@@ -18,28 +18,28 @@ public:
     void SetHeadGrade(StudentNode* node);
     void SetHeadClassification(StudentNode* node);
 
-    void InsertIntoGradeLace(StudentNode node);
-    void InsertIntoNameLace(Student student);
-    void InsertIntoClassLace(StudentNode node);
+    void InsertIntoGradeLace(StudentNode* node);
+    void InsertIntoNameLace(StudentNode* node);
+    void InsertIntoClassLace(StudentNode* node);
 
-    void Insert(Student student);
+    void Insert(Student* student);
 
-    void Delete(Student* student);
+    void Delete(string& firstName, string& lastName);
 
 
-    string GetGradesDescending(StudentNode node);
-    string GetGradesAscending(StudentNode node);
-    string GetNamesDescending(StudentNode node);
-    string GetNamesAscending(StudentNode node);
-    string GetClassificationsDescending(StudentNode node);
-    string GetClassificationsAscending(StudentNode node);
+    string GetGradesDescending(StudentNode* node);
+    string GetGradesAscending(StudentNode* node);
+    string GetNamesDescending(StudentNode* node);
+    string GetNamesAscending(StudentNode* node);
+    string GetClassificationsDescending(StudentNode* node);
+    string GetClassificationsAscending(StudentNode* node);
 protected:
 
 private:
     StudentNode* headName;
     StudentNode* headGrade;
     StudentNode* headClassification;
-    string getStudentString(Student student);
+    string getStudentString(Student* student);
 };
 }
 
