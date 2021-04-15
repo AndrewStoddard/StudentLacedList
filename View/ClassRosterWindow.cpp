@@ -242,9 +242,14 @@ void ClassRosterWindow::cbAddStudent(Fl_Widget* widget, void* data)
     {
         Fl::wait();
     }
+
     Student* student = addStudent.getStudent();
-    window->lacedList.Insert(student);
-    window->setSummaryText();
+
+    if (student != nullptr) {
+        window->lacedList.Insert(student);
+        window->setSummaryText();
+    }
+
 
 #ifdef DIAGNOSTIC_OUTPUT
     // TODO Remove or adapt code below, currently in for demo purposes
@@ -289,9 +294,11 @@ void ClassRosterWindow::cbDeleteStudent(Fl_Widget* widget, void* data)
     }
     string firstname = deleteStudent.getFirstName();
     string lastname = deleteStudent.getLastName();
+    if (firstname != "" && lastname != "") {
+        window->lacedList.Delete(firstname, lastname);
+        window->setSummaryText();
+    }
 
-    window->lacedList.Delete(firstname, lastname);
-    window->setSummaryText();
 
 #ifdef DIAGNOSTIC_OUTPUT
     if (deleteStudent.getWindowResult() == OKCancelWindow::WindowResult::OK)
