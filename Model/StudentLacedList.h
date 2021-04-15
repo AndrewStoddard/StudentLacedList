@@ -19,7 +19,7 @@ public:
     void SetHeadClassification(StudentNode* node);
 
     void InsertIntoGradeLace(StudentNode node);
-    void InsertIntoNameLace(StudentNode node);
+    void InsertIntoNameLace(Student student);
     void InsertIntoClassLace(StudentNode node);
 
     void Insert(Student student);

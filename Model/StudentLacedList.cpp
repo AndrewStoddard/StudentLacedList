@@ -61,7 +61,7 @@ void StudentLacedList::Insert(Student student)
     node.SetStudent(&newStudent);
     this->InsertIntoGradeLace(node);
     this->InsertIntoClassLace(node);
-    this->InsertIntoNameLace(node);
+    this->InsertIntoNameLace(newStudent);
 
 
 }
@@ -114,34 +114,42 @@ void StudentLacedList::InsertIntoGradeLace(StudentNode node)
         currNode->SetNextGrade(&node);
     }
 }
-void StudentLacedList::InsertIntoNameLace(StudentNode node)
+void StudentLacedList::InsertIntoNameLace(Student student)
 {
+    StudentNode node;
+    node.SetStudent(&student);
+    cout << "Node at start of name lace: " << node.GetStudent()->getLastName() << endl;
+
     if (this->headName == nullptr)
     {
-        node.SetNextName(this->headName);
         this->headName = &node;
-
+        cout << "Head Name Null Insert" << endl;
     }
     else if (toLowerCase(this->headName->GetStudent()->getLastName()) < toLowerCase(node.GetStudent()->getLastName()))
     {
         node.SetNextName(this->headName);
         this->headName = &node;
+        cout << "Head Name Less Than Insert" << endl;
+
 
     }
     else if (toLowerCase(this->headName->GetStudent()->getLastName()) == toLowerCase(node.GetStudent()->getLastName()))
     {
+        cout << "Head Name Equal Insert | Head: " << toLowerCase(this->headName->GetStudent()->getLastName()) << " | Insert: " << toLowerCase(node.GetStudent()->getLastName()) << endl;
+
         StudentNode* currNode = this->headName;
-        while(currNode->GetNextName() != nullptr && toLowerCase(currNode->GetNextName()->GetStudent()->getLastName()) == toLowerCase(node.GetStudent()->getLastName()) && toLowerCase(currNode->GetStudent()->getFirstName()) >= toLowerCase(node.GetStudent()->getFirstName()))
+        while(currNode->GetNextName() != nullptr && toLowerCase(currNode->GetNextName()->GetStudent()->getLastName()) == toLowerCase(node.GetStudent()->getLastName()) && toLowerCase(currNode->GetNextName()->GetStudent()->getFirstName()) >= toLowerCase(node.GetStudent()->getFirstName()))
         {
             currNode = currNode->GetNextName();
         }
         node.SetNextName(currNode->GetNextName());
         currNode->SetNextName(&node);
+
     }
     else
     {
         StudentNode* currNode = this->headName;
-        while(currNode->GetNextName() != nullptr && toLowerCase(currNode->GetNextName()->GetStudent()->getLastName()) >= toLowerCase(node.GetStudent()->getLastName()))
+        while(currNode->GetNextName() != nullptr && toLowerCase(currNode->GetNextName()->GetStudent()->getLastName()) > toLowerCase(node.GetStudent()->getLastName()))
         {
             if (toLowerCase(currNode->GetNextName()->GetStudent()->getLastName()) == toLowerCase(node.GetStudent()->getLastName()))
             {
@@ -158,7 +166,11 @@ void StudentLacedList::InsertIntoNameLace(StudentNode node)
         }
         node.SetNextName(currNode->GetNextName());
         currNode->SetNextName(&node);
+        cout << "Head Name Greater than Insert" << endl;
+
     }
+    cout << "Head at end of Name Lace: " << this->headName->GetStudent()->getLastName() << endl;
+
 }
 void StudentLacedList::InsertIntoClassLace(StudentNode node)
 {
