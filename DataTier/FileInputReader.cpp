@@ -27,13 +27,13 @@ StudentLacedList FileInputReader::ReadFile(string file)
     ifstream studentFileStream(file);
     while (getline(studentFileStream, line))
     {
-        Student* student = this->readStudentFromCSVString(line);
+        Student student = this->readStudentFromCSVString(line);
         lacedList.Insert(student);
     }
     return lacedList;
 }
 
-Student* FileInputReader::readStudentFromCSVString(string& line)
+Student FileInputReader::readStudentFromCSVString(string& line)
 {
     vector<string> items;
     stringstream csvStream(line);
@@ -47,7 +47,7 @@ Student* FileInputReader::readStudentFromCSVString(string& line)
     string& classificationString = items[2];
     Student::Classification classification = Student::StringToClassification(classificationString);
     Student student(items[1], items[0], classification, stoi(items[3]));
-    return &student;
+    return student;
 }
 
 }

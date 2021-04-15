@@ -241,7 +241,7 @@ void ClassRosterWindow::cbAddStudent(Fl_Widget* widget, void* data)
         Fl::wait();
     }
     Student* student = addStudent.getStudent();
-    window->lacedList.Insert(student);
+    window->lacedList.Insert(*student);
     window->setSummaryText();
 
 #ifdef DIAGNOSTIC_OUTPUT
@@ -335,31 +335,31 @@ void ClassRosterWindow::setSummaryText()
     ClassRosterWindow::SortOrder order = this->getSortOrder();
     if (order = NAME_ASCENDING)
     {
-        result = this->lacedList.GetNamesAscending(this->lacedList.GetHeadName());
+        result = this->lacedList.GetNamesAscending(*this->lacedList.GetHeadName());
     }
     else if (order = NAME_DESCENDING)
     {
-        result = this->lacedList.GetNamesDescending(this->lacedList.GetHeadName());
+        result = this->lacedList.GetNamesDescending(*this->lacedList.GetHeadName());
     }
     else if (order = CLASSIFICATION_ASCENDING)
     {
-        result = this->lacedList.GetClassificationsAscending(this->lacedList.GetHeadClassification());
+        result = this->lacedList.GetClassificationsAscending(*this->lacedList.GetHeadClassification());
     }
     else if (order = CLASSIFICATION_DESCENDING)
     {
-        result = this->lacedList.GetClassificationsDescending(this->lacedList.GetHeadClassification());
+        result = this->lacedList.GetClassificationsDescending(*this->lacedList.GetHeadClassification());
     }
     else if (order = GRADE_ASCENDING)
     {
-        result = this->lacedList.GetGradesAscending(this->lacedList.GetHeadGrade());
+        result = this->lacedList.GetGradesAscending(*this->lacedList.GetHeadGrade());
     }
     else if (order = GRADE_DESCENDING)
     {
-        result = this->lacedList.GetGradesDescending(this->lacedList.GetHeadGrade());
+        result = this->lacedList.GetGradesDescending(*this->lacedList.GetHeadGrade());
     }
     else
     {
-        result = this->lacedList.GetNamesAscending(this->lacedList.GetHeadName());
+        result = this->lacedList.GetNamesAscending(*this->lacedList.GetHeadName());
     }
 
 
