@@ -1,5 +1,5 @@
 #include "Student.h"
-
+#include "Utils.h"
 namespace model
 {
 
@@ -26,6 +26,11 @@ Student::Student(const string& firstName, const string& lastName, Classification
     this->lastName = lastName;
     this->classification = classification;
     this->grade = grade;
+}
+
+Student::Student(const string& firstName, const string& lastName) {
+    this->firstName = firstName;
+    this->lastName = lastName;
 }
 
 //
@@ -66,6 +71,28 @@ Student::Classification Student::getClassification() const
 {
     return this->classification;
 }
+
+bool Student::Equal(Student* student1, Student* student2)
+{
+    return toLowerCase(student1->getFirstName()) == toLowerCase(student2->getFirstName()) && toLowerCase(student1->getLastName()) == toLowerCase(student2->getLastName());
+}
+
+Student::Classification Student::StringToClassification(string& classification) {
+    Student::Classification result;
+    if (classification == Student::DualEnrollment) {
+        result = Student::DUALENROLLMENT;
+    } else if (classification == Student::Undergrad) {
+        result = Student::UNDERGRAD;
+    } else if (classification == Student::Grad) {
+        result = Student::GRAD;
+    } else if (classification == Student::Postdoc) {
+        result = Student::POSTDOC;
+    } else {
+        result = Student::UNKNOWN;
+    }
+    return result;
+}
+
 
 //
 // Gets the student's grade earned

@@ -18,6 +18,7 @@
 					<Add directory="../GradeLacer" />
 					<Add directory="Utils" />
 					<Add directory="View" />
+					<Add directory="DataTier" />
 				</Compiler>
 			</Target>
 		</Build>
@@ -27,8 +28,16 @@
 		<Linker>
 			<Add option="`fltk-config --ldstaticflags`" />
 		</Linker>
+		<Unit filename="DataTier/FileInputReader.cpp" />
+		<Unit filename="DataTier/FileInputReader.h" />
+		<Unit filename="DataTier/FileOutputWriter.cpp" />
+		<Unit filename="DataTier/FileOutputWriter.h" />
 		<Unit filename="Model/Student.cpp" />
 		<Unit filename="Model/Student.h" />
+		<Unit filename="Model/StudentLacedList.cpp" />
+		<Unit filename="Model/StudentLacedList.h" />
+		<Unit filename="Model/StudentNode.cpp" />
+		<Unit filename="Model/StudentNode.h" />
 		<Unit filename="Utils/Utils.cpp" />
 		<Unit filename="Utils/Utils.h" />
 		<Unit filename="View/AddStudentWindow.cpp" />
@@ -41,10 +50,7 @@
 		<Unit filename="View/OKCancelWindow.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
-			<code_completion />
-			<envvars />
 			<lib_finder disable_auto="1" />
-			<debugger />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

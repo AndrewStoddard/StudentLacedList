@@ -187,10 +187,10 @@
 1617028044 source:/home/dyoder/Assignments/GradeLacer/View/OKCancelWindow.cpp
 	"OKCancelWindow.h"
 
-1618346990 source:/home/astodda2/Desktop/GradeLacer/main.cpp
+1618424678 source:/home/astodda2/Desktop/GradeLacer/main.cpp
 	"ClassRosterWindow.h"
 
-1617032452 /home/astodda2/Desktop/GradeLacer/View/ClassRosterWindow.h
+1618451862 /home/astodda2/Desktop/GradeLacer/View/ClassRosterWindow.h
 	<FL/Fl.H>
 	<FL/Fl_Window.H>
 	<FL/Fl_Group.H>
@@ -201,14 +201,16 @@
 	<FL/Fl_Button.H>
 	<vector>
 	<string>
+	"FileInputReader.h"
 
-1617032399 source:/home/astodda2/Desktop/GradeLacer/Model/Student.cpp
+1618451563 source:/home/astodda2/Desktop/GradeLacer/Model/Student.cpp
 	"Student.h"
+	"Utils.h"
 
-1617026951 /home/astodda2/Desktop/GradeLacer/Model/Student.h
+1618451558 /home/astodda2/Desktop/GradeLacer/Model/Student.h
 	<string>
 
-1618369665 source:/home/astodda2/Desktop/GradeLacer/Utils/Utils.cpp
+1618370883 source:/home/astodda2/Desktop/GradeLacer/Utils/Utils.cpp
 	"Utils.h"
 	<algorithm>
 
@@ -226,11 +228,14 @@
 	"Student.h"
 	<Fl/Fl_Input.H>
 
-1617028077 /home/astodda2/Desktop/GradeLacer/View/OKCancelWindow.h
+1618450118 /home/astodda2/Desktop/GradeLacer/View/OKCancelWindow.h
 	<Fl/Fl_Window.H>
 	<Fl/Fl_Button.H>
+	"FileInputReader.h"
+	"FileOutputWriter.h"
+	"StudentLacedList.h"
 
-1617028031 source:/home/astodda2/Desktop/GradeLacer/View/ClassRosterWindow.cpp
+1618456180 source:/home/astodda2/Desktop/GradeLacer/View/ClassRosterWindow.cpp
 	"ClassRosterWindow.h"
 	"DeleteStudentWindow.h"
 	"AddStudentWindow.h"
@@ -238,6 +243,7 @@
 	<Fl/fl_draw.H>
 	<Fl/Fl_File_Chooser.H>
 	<iostream>
+	"Student.h"
 
 1617028071 /home/astodda2/Desktop/GradeLacer/View/DeleteStudentWindow.h
 	"OKCancelWindow.h"
@@ -251,17 +257,39 @@
 1617028044 source:/home/astodda2/Desktop/GradeLacer/View/OKCancelWindow.cpp
 	"OKCancelWindow.h"
 
-1618369836 source:/home/astodda2/Desktop/GradeLacer/Model/StudentLacedList.cpp
+1618456525 source:/home/astodda2/Desktop/GradeLacer/Model/StudentLacedList.cpp
 	"StudentLacedList.h"
 	"StudentNode.h"
+	"Student.h"
 	"Utils.h"
+	<string>
+	<sstream>
+	<iomanip>
 
-1618369764 /home/astodda2/Desktop/GradeLacer/Model/StudentLacedList.h
+1618456288 /home/astodda2/Desktop/GradeLacer/Model/StudentLacedList.h
 	"StudentNode.h"
 
-1618350429 /home/astodda2/Desktop/GradeLacer/Model/StudentNode.h
+1618456778 /home/astodda2/Desktop/GradeLacer/Model/StudentNode.h
 	"Student.h"
 
-1618350078 source:/home/astodda2/Desktop/GradeLacer/Model/StudentNode.cpp
+1618453799 source:/home/astodda2/Desktop/GradeLacer/Model/StudentNode.cpp
 	"StudentNode.h"
+
+1618442986 source:/home/astodda2/Desktop/GradeLacer/DataTier/FileOutputWriter.cpp
+	"FileOutputWriter.h"
+
+1618442990 /home/astodda2/Desktop/GradeLacer/DataTier/FileOutputWriter.h
+
+1618456271 /home/astodda2/Desktop/GradeLacer/DataTier/FileInputReader.h
+	"Student.h"
+	"StudentLacedList.h"
+
+1618456296 source:/home/astodda2/Desktop/GradeLacer/DataTier/FileInputReader.cpp
+	"FileInputReader.h"
+	<vector>
+	<iostream>
+	<fstream>
+	<sstream>
+	<string>
+	"Student.h"
 

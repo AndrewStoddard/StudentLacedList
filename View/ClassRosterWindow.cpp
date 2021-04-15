@@ -12,6 +12,8 @@
 #ifdef DIAGNOSTIC_OUTPUT
 #include <iostream>
 #endif
+#include "Student.h"
+using namespace model;
 
 namespace view
 {
@@ -52,7 +54,6 @@ ClassRosterWindow::ClassRosterWindow(int width, int height, const char* title) :
     this->deleteButton = new Fl_Button(360, 330, 70, 30, "Delete");
     this->deleteButton->callback(cbDeleteStudent, this);
 
-    this->setSummaryText("Demo of how to set the summary text.");
 
     end();
 }
@@ -111,6 +112,7 @@ void ClassRosterWindow::cbSortingMethodChanged(Fl_Widget* widget, void* data)
 {
     ClassRosterWindow* window = (ClassRosterWindow*)data;
     window->sortingMethodChanged();
+    window->setSummaryText();
 
 #ifdef DIAGNOSTIC_OUTPUT
     cout << "Sorting method: " << window->getSortOrder() << endl;
@@ -145,6 +147,9 @@ void ClassRosterWindow::cbLoad(Fl_Widget* widget, void* data)
 #ifdef DIAGNOSTIC_OUTPUT
     cout << "Filename selected: " << window->getFilename() << endl;
 #endif
+
+    window->lacedList = window->inputReader.ReadFile(window->getFilename());
+    window->setSummaryText();
 
 }
 
@@ -235,6 +240,9 @@ void ClassRosterWindow::cbAddStudent(Fl_Widget* widget, void* data)
     {
         Fl::wait();
     }
+    Student* student = addStudent.getStudent();
+    window->lacedList.Insert(student);
+    window->setSummaryText();
 
 #ifdef DIAGNOSTIC_OUTPUT
     // TODO Remove or adapt code below, currently in for demo purposes
@@ -246,6 +254,7 @@ void ClassRosterWindow::cbAddStudent(Fl_Widget* widget, void* data)
         cout << "Last name: " << pStudent->getLastName() << endl;
         cout << "Classification: " << pStudent->getClassification() << endl;
         cout << "Grade: " << pStudent->getGrade() << endl;
+
     }
     else
     {
@@ -276,6 +285,12 @@ void ClassRosterWindow::cbDeleteStudent(Fl_Widget* widget, void* data)
     {
         Fl::wait();
     }
+    string firstname = deleteStudent.getFirstName();
+    string lastname = deleteStudent.getLastName();
+    Student student(firstname, lastname);
+
+    window->lacedList.Delete(&student);
+    window->setSummaryText();
 
 #ifdef DIAGNOSTIC_OUTPUT
     if (deleteStudent.getWindowResult() == OKCancelWindow::WindowResult::OK)
@@ -313,11 +328,43 @@ void ClassRosterWindow::setSortOrderBasedOnSelection()
 // @precondition none
 // @postcondition none
 //
-// @param outputText The text to display
 //
-void ClassRosterWindow::setSummaryText(const string& outputText)
+void ClassRosterWindow::setSummaryText()
 {
-    this->summaryOutputTextBuffer->text(outputText.c_str());
+    string result;
+    ClassRosterWindow::SortOrder order = this->getSortOrder();
+    if (order = NAME_ASCENDING)
+    {
+        result = this->lacedList.GetNamesAscending(this->lacedList.GetHeadName());
+    }
+    else if (order = NAME_DESCENDING)
+    {
+        result = this->lacedList.GetNamesDescending(this->lacedList.GetHeadName());
+    }
+    else if (order = CLASSIFICATION_ASCENDING)
+    {
+        result = this->lacedList.GetClassificationsAscending(this->lacedList.GetHeadClassification());
+    }
+    else if (order = CLASSIFICATION_DESCENDING)
+    {
+        result = this->lacedList.GetClassificationsDescending(this->lacedList.GetHeadClassification());
+    }
+    else if (order = GRADE_ASCENDING)
+    {
+        result = this->lacedList.GetGradesAscending(this->lacedList.GetHeadGrade());
+    }
+    else if (order = GRADE_DESCENDING)
+    {
+        result = this->lacedList.GetGradesDescending(this->lacedList.GetHeadGrade());
+    }
+    else
+    {
+        result = this->lacedList.GetNamesAscending(this->lacedList.GetHeadName());
+    }
+
+
+
+    this->summaryOutputTextBuffer->text(result.c_str());
 }
 
 //
@@ -328,7 +375,8 @@ void ClassRosterWindow::setSummaryText(const string& outputText)
 //
 // @return The sort order the user has selected
 //
-ClassRosterWindow::SortOrder ClassRosterWindow::getSortOrder() const {
+ClassRosterWindow::SortOrder ClassRosterWindow::getSortOrder() const
+{
     return this->sortOrderSelection;
 }
 

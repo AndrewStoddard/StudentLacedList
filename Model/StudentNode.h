@@ -3,30 +3,31 @@
 #include "Student.h"
 
 
-namespace model {
+namespace model
+{
 class StudentNode
 {
-    public:
-        StudentNode();
-        virtual ~StudentNode();
-        StudentNode* GetNextName();
-        StudentNode* GetNextGrade();
-        StudentNode* GetNextClassification();
-        Student* GetStudent();
+public:
+    StudentNode();
+    virtual ~StudentNode();
+    StudentNode* GetNextName();
+    StudentNode* GetNextGrade();
+    StudentNode* GetNextClassification();
+    Student* GetStudent();
 
-        void SetNextName(StudentNode* node);
-        void SetNextGrade(StudentNode* node);
-        void SetNextClassification(StudentNode* node);
-        void SetStudent(Student* newStudent);
+    void SetNextName(StudentNode* node);
+    void SetNextGrade(StudentNode* node);
+    void SetNextClassification(StudentNode* node);
+    void SetStudent(Student* newStudent);
 
 
-    protected:
+protected:
 
-    private:
-        StudentNode* nextName;
-        StudentNode* nextGrade;
-        StudentNode* nextClassification;
-        Student* student;
+private:
+    StudentNode* nextName;
+    StudentNode* nextGrade;
+    StudentNode* nextClassification;
+    Student* student;
 
 };
 }

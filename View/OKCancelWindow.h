@@ -3,6 +3,11 @@
 
 #include <Fl/Fl_Window.H>
 #include <Fl/Fl_Button.H>
+#include "FileInputReader.h"
+#include "FileOutputWriter.h"
+#include "StudentLacedList.h"
+using namespace model;
+using namespace datatier;
 
 namespace view
 {

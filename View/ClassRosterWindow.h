@@ -14,6 +14,9 @@
 #include <string>
 using namespace std;
 
+#include "FileInputReader.h"
+using namespace datatier;
+
 namespace view
 {
 
@@ -53,6 +56,8 @@ private:
     Fl_Button* deleteButton;
 
     string selectedFilename;
+    FileInputReader inputReader;
+    StudentLacedList lacedList;
 
     void createAndDisplaySortingRadioButtons();
     void setSortOrderBasedOnSelection();
@@ -76,7 +81,7 @@ public:
 
     ClassRosterWindow::SortOrder getSortOrder() const;
 
-    void setSummaryText(const string& outputText);
+    void setSummaryText();
 };
 
 }

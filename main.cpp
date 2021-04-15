@@ -1,4 +1,3 @@
-
 #include "ClassRosterWindow.h"
 using namespace view;
 

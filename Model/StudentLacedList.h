@@ -3,32 +3,43 @@
 #include "StudentNode.h"
 
 
-namespace model {
+namespace model
+{
 class StudentLacedList
 {
-    public:
-        StudentLacedList();
-        virtual ~StudentLacedList();
-        StudentNode* GetHeadName();
-        StudentNode* GetHeadGrade();
-        StudentNode* GetHeadClassification();
+public:
+    StudentLacedList();
+    virtual ~StudentLacedList();
+    StudentNode* GetHeadName();
+    StudentNode* GetHeadGrade();
+    StudentNode* GetHeadClassification();
 
-        void SetHeadName(StudentNode* node);
-        void SetHeadGrade(StudentNode* node);
-        void SetHeadClassification(StudentNode* node);
+    void SetHeadName(StudentNode* node);
+    void SetHeadGrade(StudentNode* node);
+    void SetHeadClassification(StudentNode* node);
 
-        void InsertIntoGradeLace(StudentNode* node);
-        void InsertIntoNameLace(StudentNode* node);
-        void InsertIntoClassLace(StudentNode* node);
+    void InsertIntoGradeLace(StudentNode node);
+    void InsertIntoNameLace(StudentNode node);
+    void InsertIntoClassLace(StudentNode node);
 
-        void Insert(Student* student);
+    void Insert(Student* student);
 
-    protected:
+    void Delete(Student* student);
 
-    private:
-        StudentNode* headName;
-        StudentNode* headGrade;
-        StudentNode* headClassification;
+
+    string GetGradesDescending(StudentNode* node);
+    string GetGradesAscending(StudentNode* node);
+    string GetNamesDescending(StudentNode* node);
+    string GetNamesAscending(StudentNode* node);
+    string GetClassificationsDescending(StudentNode* node);
+    string GetClassificationsAscending(StudentNode* node);
+protected:
+
+private:
+    StudentNode* headName;
+    StudentNode* headGrade;
+    StudentNode* headClassification;
+    string getStudentString(Student* student);
 };
 }
 
