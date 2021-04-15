@@ -279,7 +279,9 @@
 1618442986 source:/home/astodda2/Desktop/GradeLacer/DataTier/FileOutputWriter.cpp
 	"FileOutputWriter.h"
 
-1618442990 /home/astodda2/Desktop/GradeLacer/DataTier/FileOutputWriter.h
+1618527842 /home/astodda2/Desktop/GradeLacer/DataTier/FileOutputWriter.h
+	"StudentLacedList.h"
+	<string>
 
 1618505199 /home/astodda2/Desktop/GradeLacer/DataTier/FileInputReader.h
 	"Student.h"
