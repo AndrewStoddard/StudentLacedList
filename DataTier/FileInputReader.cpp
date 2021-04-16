@@ -32,7 +32,7 @@ FileInputReader::~FileInputReader()
 * @param file the file name
 * @return StudentLacedList
 */
-StudentLacedList FileInputReader::ReadFile(string file)
+StudentLacedList FileInputReader::readFile(string file)
 {
     string line;
     StudentLacedList lacedList;
@@ -40,7 +40,7 @@ StudentLacedList FileInputReader::ReadFile(string file)
     while (getline(studentFileStream, line))
     {
         Student* student = this->readStudentFromCSVString(line);
-        lacedList.Insert(student);
+        lacedList.insertNode(student);
     }
 
     return lacedList;
@@ -62,7 +62,7 @@ Student* FileInputReader::readStudentFromCSVString(string& line)
         items.push_back(item);
     }
     string& classificationString = items[2];
-    Student::Classification classification = Student::StringToClassification(classificationString);
+    Student::Classification classification = Student::stringToClassification(classificationString);
     return new Student(items[1], items[0], classification, stoi(items[3]));
 }
 

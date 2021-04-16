@@ -29,8 +29,8 @@ FileOutputWriter::~FileOutputWriter()
 * @param fileName the file to write to
 * @param lacedList the laced list with nodes to write
 */
-void FileOutputWriter::WriteLacedListToFile(string fileName, StudentLacedList lacedList) {
-    string output = FileOutputWriter::getOutputAscending(lacedList.GetHeadName());
+void FileOutputWriter::writeLacedListToFile(string fileName, StudentLacedList lacedList) {
+    string output = FileOutputWriter::getOutputAscending(lacedList.getHeadName());
     ofstream outfileOStream(fileName);
     outfileOStream << output;
 }
@@ -42,15 +42,15 @@ void FileOutputWriter::WriteLacedListToFile(string fileName, StudentLacedList la
 string FileOutputWriter::getOutputAscending(StudentNode* node) {
     ostringstream result;
     result
-    << node->GetStudent()->getLastName() << ","
-    << node->GetStudent()->getFirstName() << ","
-    << Student::ClassificationToString(node->GetStudent()->getClassification()) << ","
-    << node->GetStudent()->getGrade()
+    << node->getStudent()->getLastName() << ","
+    << node->getStudent()->getFirstName() << ","
+    << Student::classificationToString(node->getStudent()->getClassification()) << ","
+    << node->getStudent()->getGrade()
     << endl;
 
-    if (node->GetNextName() != nullptr)
+    if (node->getNextName() != nullptr)
     {
-        result << FileOutputWriter::getOutputAscending(node->GetNextName());
+        result << FileOutputWriter::getOutputAscending(node->getNextName());
     }
 
     return result.str();

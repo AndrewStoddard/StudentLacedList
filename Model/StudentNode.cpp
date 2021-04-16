@@ -28,7 +28,7 @@ StudentNode::~StudentNode()
 * Gets the next node in the name lace
 * @return StudentNode*
 */
-StudentNode* StudentNode::GetNextName()
+StudentNode* StudentNode::getNextName()
 {
     return this->nextName;
 }
@@ -36,7 +36,7 @@ StudentNode* StudentNode::GetNextName()
 * Gets the next node in the grade lace
 * @return StudentNode*
 */
-StudentNode* StudentNode::GetNextGrade()
+StudentNode* StudentNode::getNextGrade()
 {
     return this->nextGrade;
 }
@@ -44,7 +44,7 @@ StudentNode* StudentNode::GetNextGrade()
 * Gets the next node in the classification lace
 * @return StudentNode*
 */
-StudentNode* StudentNode::GetNextClassification()
+StudentNode* StudentNode::getNextClassification()
 {
     return this->nextClassification;
 }
@@ -52,7 +52,7 @@ StudentNode* StudentNode::GetNextClassification()
 * Gets the student
 * @return Student*
 */
-Student* StudentNode::GetStudent()
+Student* StudentNode::getStudent()
 {
     return this->student;
 }
@@ -60,7 +60,7 @@ Student* StudentNode::GetStudent()
 * Sets the next node in the name lace
 * @param node the next node in name lace
 */
-void StudentNode::SetNextName(StudentNode* node)
+void StudentNode::setNextName(StudentNode* node)
 {
     this->nextName = node;
 }
@@ -68,7 +68,7 @@ void StudentNode::SetNextName(StudentNode* node)
 * Sets the next node in the grade lace
 * @param node the next node in grade lace
 */
-void StudentNode::SetNextGrade(StudentNode* node)
+void StudentNode::setNextGrade(StudentNode* node)
 {
     this->nextGrade = node;
 }
@@ -76,7 +76,7 @@ void StudentNode::SetNextGrade(StudentNode* node)
 * Sets the next node in the classification lace
 * @param node the next node in classification lace
 */
-void StudentNode::SetNextClassification(StudentNode* node)
+void StudentNode::setNextClassification(StudentNode* node)
 {
     this->nextClassification = node;
 }
@@ -84,7 +84,7 @@ void StudentNode::SetNextClassification(StudentNode* node)
 * Sets the student
 * @param newStudent The new student
 */
-void StudentNode::SetStudent(Student* newStudent)
+void StudentNode::setStudent(Student* newStudent)
 {
     this->student = newStudent;
 }

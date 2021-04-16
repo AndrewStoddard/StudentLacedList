@@ -11,7 +11,7 @@ class FileOutputWriter
     public:
         FileOutputWriter();
         virtual ~FileOutputWriter();
-        static void WriteLacedListToFile(string fileName, StudentLacedList lacedList);
+        static void writeLacedListToFile(string fileName, StudentLacedList lacedList);
         static string getOutputAscending(StudentNode* node);
 
     protected:

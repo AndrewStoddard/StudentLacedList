@@ -32,7 +32,7 @@ StudentLacedList::~StudentLacedList()
 * Gets the head of the name lace
 * @return StudentNode*
 */
-StudentNode* StudentLacedList::GetHeadName()
+StudentNode* StudentLacedList::getHeadName()
 {
     return this->headName;
 }
@@ -40,7 +40,7 @@ StudentNode* StudentLacedList::GetHeadName()
 * Gets the head of the grade lace
 * @return StudentNode*
 */
-StudentNode* StudentLacedList::GetHeadGrade()
+StudentNode* StudentLacedList::getHeadGrade()
 {
     return this->headGrade;
 }
@@ -48,7 +48,7 @@ StudentNode* StudentLacedList::GetHeadGrade()
 * Gets the head of the classification lace
 * @return StudentNode*
 */
-StudentNode* StudentLacedList::GetHeadClassification()
+StudentNode* StudentLacedList::getHeadClassification()
 {
     return this->headClassification;
 }
@@ -56,7 +56,7 @@ StudentNode* StudentLacedList::GetHeadClassification()
 * Sets the head of the name lace
 * @param node the node to be set
 */
-void StudentLacedList::SetHeadName(StudentNode* node)
+void StudentLacedList::setHeadName(StudentNode* node)
 {
     this->headName = node;
 }
@@ -64,7 +64,7 @@ void StudentLacedList::SetHeadName(StudentNode* node)
 * Sets the head of the grade lace
 * @param node the node to be set
 */
-void StudentLacedList::SetHeadGrade(StudentNode* node)
+void StudentLacedList::setHeadGrade(StudentNode* node)
 {
     this->headGrade = node;
 }
@@ -72,7 +72,7 @@ void StudentLacedList::SetHeadGrade(StudentNode* node)
 * Sets the head of the classification lace
 * @param node the node to be set
 */
-void StudentLacedList::SetHeadClassification(StudentNode* node)
+void StudentLacedList::setHeadClassification(StudentNode* node)
 {
     this->headClassification = node;
 }
@@ -80,13 +80,13 @@ void StudentLacedList::SetHeadClassification(StudentNode* node)
 * Inserts a stduent into the interlaced list
 * @param student the stiudent to be inserted
 */
-void StudentLacedList::Insert(Student* student)
+void StudentLacedList::insertNode(Student* student)
 {
     StudentNode* node = new StudentNode();
-    node->SetStudent(student);
-    this->InsertIntoGradeLace(node);
-    this->InsertIntoClassLace(node);
-    this->InsertIntoNameLace(node);
+    node->setStudent(student);
+    this->insertIntoGradeLace(node);
+    this->insertIntoClassLace(node);
+    this->insertIntoNameLace(node);
 
 
 }
@@ -94,38 +94,38 @@ void StudentLacedList::Insert(Student* student)
 * Inserts a node into the grade lace
 * @param node the node to be inserted
 */
-void StudentLacedList::InsertIntoGradeLace(StudentNode* node)
+void StudentLacedList::insertIntoGradeLace(StudentNode* node)
 {
     if(this->headGrade == nullptr )
     {
         this->headGrade = node;
     }
-    else if(this->headGrade->GetStudent()->getGrade() < node->GetStudent()->getGrade())
+    else if(this->headGrade->getStudent()->getGrade() < node->getStudent()->getGrade())
     {
-        node->SetNextGrade(this->headGrade);
+        node->setNextGrade(this->headGrade);
         this->headGrade = node;
     }
-    else if (this->headGrade->GetStudent()->getGrade() == node->GetStudent()->getGrade())
+    else if (this->headGrade->getStudent()->getGrade() == node->getStudent()->getGrade())
     {
         StudentNode* currNode = this->headGrade;
-        while (currNode->GetNextGrade() != nullptr && currNode->GetNextGrade()->GetStudent()->getGrade() == node->GetStudent()->getGrade() && toLowerCase(currNode->GetStudent()->getFirstName()) <= toLowerCase(node->GetStudent()->getFirstName()))
+        while (currNode->getNextGrade() != nullptr && currNode->getNextGrade()->getStudent()->getGrade() == node->getStudent()->getGrade() && toLowerCase(currNode->getStudent()->getFirstName()) <= toLowerCase(node->getStudent()->getFirstName()))
         {
-            currNode = currNode->GetNextGrade();
+            currNode = currNode->getNextGrade();
         }
-        node->SetNextGrade(currNode->GetNextGrade());
-        currNode->SetNextGrade(node);
+        node->setNextGrade(currNode->getNextGrade());
+        currNode->setNextGrade(node);
 
     }
     else
     {
         StudentNode* currNode = this->headGrade;
-        while(currNode->GetNextGrade() != nullptr && currNode->GetNextGrade()->GetStudent()->getGrade() >= node->GetStudent()->getGrade())
+        while(currNode->getNextGrade() != nullptr && currNode->getNextGrade()->getStudent()->getGrade() >= node->getStudent()->getGrade())
         {
-            if (currNode->GetNextGrade()->GetStudent()->getGrade() == node->GetStudent()->getGrade())
+            if (currNode->getNextGrade()->getStudent()->getGrade() == node->getStudent()->getGrade())
             {
-                if(toLowerCase(currNode->GetNextGrade()->GetStudent()->getFirstName()) <= toLowerCase(node->GetStudent()->getFirstName()))
+                if(toLowerCase(currNode->getNextGrade()->getStudent()->getFirstName()) <= toLowerCase(node->getStudent()->getFirstName()))
                 {
-                    currNode = currNode->GetNextGrade();
+                    currNode = currNode->getNextGrade();
                 } else {
                     break;
                 }
@@ -133,52 +133,52 @@ void StudentLacedList::InsertIntoGradeLace(StudentNode* node)
             }
             else
             {
-                currNode = currNode->GetNextGrade();
+                currNode = currNode->getNextGrade();
             }
         }
-        node->SetNextGrade(currNode->GetNextGrade());
-        currNode->SetNextGrade(node);
+        node->setNextGrade(currNode->getNextGrade());
+        currNode->setNextGrade(node);
     }
 }
 /**
 * Inserts a node into the name lace
 * @param node the node to be inserted
 */
-void StudentLacedList::InsertIntoNameLace(StudentNode* node)
+void StudentLacedList::insertIntoNameLace(StudentNode* node)
 {
     if (this->headName == nullptr)
     {
         this->headName = node;
     }
-    else if (toLowerCase(this->headName->GetStudent()->getLastName()) < toLowerCase(node->GetStudent()->getLastName()))
+    else if (toLowerCase(this->headName->getStudent()->getLastName()) < toLowerCase(node->getStudent()->getLastName()))
     {
-        node->SetNextName(this->headName);
+        node->setNextName(this->headName);
         this->headName = node;
 
 
     }
-    else if (toLowerCase(this->headName->GetStudent()->getLastName()) == toLowerCase(node->GetStudent()->getLastName()))
+    else if (toLowerCase(this->headName->getStudent()->getLastName()) == toLowerCase(node->getStudent()->getLastName()))
     {
 
         StudentNode* currNode = this->headName;
-        while(currNode->GetNextName() != nullptr && toLowerCase(currNode->GetNextName()->GetStudent()->getLastName()) == toLowerCase(node->GetStudent()->getLastName()) && toLowerCase(currNode->GetNextName()->GetStudent()->getFirstName()) <= toLowerCase(node->GetStudent()->getFirstName()))
+        while(currNode->getNextName() != nullptr && toLowerCase(currNode->getNextName()->getStudent()->getLastName()) == toLowerCase(node->getStudent()->getLastName()) && toLowerCase(currNode->getNextName()->getStudent()->getFirstName()) <= toLowerCase(node->getStudent()->getFirstName()))
         {
-            currNode = currNode->GetNextName();
+            currNode = currNode->getNextName();
         }
-        node->SetNextName(currNode->GetNextName());
-        currNode->SetNextName(node);
+        node->setNextName(currNode->getNextName());
+        currNode->setNextName(node);
 
     }
     else
     {
         StudentNode* currNode = this->headName;
-        while(currNode->GetNextName() != nullptr && toLowerCase(currNode->GetNextName()->GetStudent()->getLastName()) <= toLowerCase(node->GetStudent()->getLastName()))
+        while(currNode->getNextName() != nullptr && toLowerCase(currNode->getNextName()->getStudent()->getLastName()) <= toLowerCase(node->getStudent()->getLastName()))
         {
-            if (toLowerCase(currNode->GetNextName()->GetStudent()->getLastName()) == toLowerCase(node->GetStudent()->getLastName()))
+            if (toLowerCase(currNode->getNextName()->getStudent()->getLastName()) == toLowerCase(node->getStudent()->getLastName()))
             {
-                if(toLowerCase(currNode->GetNextName()->GetStudent()->getFirstName()) <= toLowerCase(node->GetStudent()->getFirstName()))
+                if(toLowerCase(currNode->getNextName()->getStudent()->getFirstName()) <= toLowerCase(node->getStudent()->getFirstName()))
                 {
-                    currNode = currNode->GetNextName();
+                    currNode = currNode->getNextName();
                 } else {
                     break;
                 }
@@ -186,11 +186,11 @@ void StudentLacedList::InsertIntoNameLace(StudentNode* node)
             }
             else
             {
-                currNode = currNode->GetNextName();
+                currNode = currNode->getNextName();
             }
         }
-        node->SetNextName(currNode->GetNextName());
-        currNode->SetNextName(node);
+        node->setNextName(currNode->getNextName());
+        currNode->setNextName(node);
 
     }
 
@@ -199,39 +199,39 @@ void StudentLacedList::InsertIntoNameLace(StudentNode* node)
 * Inserts a node into the class lace
 * @param node the node to be inserted
 */
-void StudentLacedList::InsertIntoClassLace(StudentNode* node)
+void StudentLacedList::insertIntoClassLace(StudentNode* node)
 {
     if (this->headClassification == nullptr)
     {
-        node->SetNextClassification(this->headClassification);
+        node->setNextClassification(this->headClassification);
         this->headClassification = node;
 
     }
-    else if (this->headClassification->GetStudent()->getClassification() < node->GetStudent()->getClassification())
+    else if (this->headClassification->getStudent()->getClassification() < node->getStudent()->getClassification())
     {
-        node->SetNextClassification(this->headClassification);
+        node->setNextClassification(this->headClassification);
         this->headClassification = node;
     }
-    else if (this->headClassification->GetStudent()->getClassification() == node->GetStudent()->getClassification())
+    else if (this->headClassification->getStudent()->getClassification() == node->getStudent()->getClassification())
     {
         StudentNode* currNode = this->headClassification;
-        while(currNode->GetNextClassification() != nullptr && currNode->GetNextClassification()->GetStudent()->getClassification() == node->GetStudent()->getClassification() && toLowerCase(currNode->GetStudent()->getLastName()) <= toLowerCase(node->GetStudent()->getLastName()))
+        while(currNode->getNextClassification() != nullptr && currNode->getNextClassification()->getStudent()->getClassification() == node->getStudent()->getClassification() && toLowerCase(currNode->getStudent()->getLastName()) <= toLowerCase(node->getStudent()->getLastName()))
         {
-            currNode = currNode->GetNextClassification();
+            currNode = currNode->getNextClassification();
         }
-        node->SetNextClassification(currNode->GetNextClassification());
-        currNode->SetNextClassification(node);
+        node->setNextClassification(currNode->getNextClassification());
+        currNode->setNextClassification(node);
     }
     else
     {
         StudentNode* currNode = this->headClassification;
-        while(currNode->GetNextClassification() != nullptr && currNode->GetNextClassification()->GetStudent()->getClassification() >= node->GetStudent()->getClassification())
+        while(currNode->getNextClassification() != nullptr && currNode->getNextClassification()->getStudent()->getClassification() >= node->getStudent()->getClassification())
         {
-            if (currNode->GetNextClassification()->GetStudent()->getClassification() == node->GetStudent()->getClassification())
+            if (currNode->getNextClassification()->getStudent()->getClassification() == node->getStudent()->getClassification())
             {
-                if(toLowerCase(currNode->GetNextClassification()->GetStudent()->getLastName()) <= toLowerCase(node->GetStudent()->getLastName()))
+                if(toLowerCase(currNode->getNextClassification()->getStudent()->getLastName()) <= toLowerCase(node->getStudent()->getLastName()))
                 {
-                    currNode = currNode->GetNextClassification();
+                    currNode = currNode->getNextClassification();
                 } else {
                     break;
                 }
@@ -239,11 +239,11 @@ void StudentLacedList::InsertIntoClassLace(StudentNode* node)
             }
             else
             {
-                currNode = currNode->GetNextClassification();
+                currNode = currNode->getNextClassification();
             }
         }
-        node->SetNextClassification(currNode->GetNextClassification());
-        currNode->SetNextClassification(node);
+        node->setNextClassification(currNode->getNextClassification());
+        currNode->setNextClassification(node);
     }
 }
 /**
@@ -251,67 +251,65 @@ void StudentLacedList::InsertIntoClassLace(StudentNode* node)
 * @param firstName the firstname of the student in the lace
 * @param lastName the lastname of the student in the lace
 */
-void StudentLacedList::Delete(string& firstName, string& lastName)
+void StudentLacedList::deleteNode(string& firstName, string& lastName)
 {
-    StudentNode* nameNode = this->GetHeadName();
-    StudentNode* gradeNode = this->GetHeadGrade();
-    StudentNode* classNode = this->GetHeadClassification();
+    StudentNode* nameNode = this->getHeadName();
+    StudentNode* gradeNode = this->getHeadGrade();
+    StudentNode* classNode = this->getHeadClassification();
     StudentNode* nodeToDelete = nullptr;
     if (nameNode == nullptr || gradeNode == nullptr || classNode == nullptr)
     {
         return;
     }
-    if(toLowerCase(classNode->GetStudent()->getLastName()) == toLowerCase(lastName) && toLowerCase(classNode->GetStudent()->getFirstName()) == toLowerCase(firstName))
+    if(toLowerCase(classNode->getStudent()->getLastName()) == toLowerCase(lastName) && toLowerCase(classNode->getStudent()->getFirstName()) == toLowerCase(firstName))
     {
-        nodeToDelete = classNode;
-        this->headClassification = classNode->GetNextClassification();
+
+        this->headClassification = classNode->getNextClassification();
     }
     else
     {
-        while (classNode->GetNextClassification() != nullptr)
+        while (classNode->getNextClassification() != nullptr)
         {
 
-            if (toLowerCase(classNode->GetNextClassification()->GetStudent()->getLastName()) == toLowerCase(lastName) && toLowerCase(classNode->GetNextClassification()->GetStudent()->getFirstName()) == toLowerCase(firstName))
+            if (toLowerCase(classNode->getNextClassification()->getStudent()->getLastName()) == toLowerCase(lastName) && toLowerCase(classNode->getNextClassification()->getStudent()->getFirstName()) == toLowerCase(firstName))
             {
-                classNode->SetNextClassification(classNode->GetNextClassification()->GetNextClassification());
+                classNode->setNextClassification(classNode->getNextClassification()->getNextClassification());
                 break;
             }
-            classNode = classNode->GetNextClassification();
+            classNode = classNode->getNextClassification();
         }
     }
-    if(toLowerCase(gradeNode->GetStudent()->getLastName()) == toLowerCase(lastName) && toLowerCase(gradeNode->GetStudent()->getFirstName()) == toLowerCase(firstName))
+    if(toLowerCase(gradeNode->getStudent()->getLastName()) == toLowerCase(lastName) && toLowerCase(gradeNode->getStudent()->getFirstName()) == toLowerCase(firstName))
     {
-        nodeToDelete = gradeNode;
-        this->headGrade = gradeNode->GetNextGrade();
+        this->headGrade = gradeNode->getNextGrade();
     }
     else
     {
-        while (gradeNode->GetNextGrade() != nullptr)
+        while (gradeNode->getNextGrade() != nullptr)
         {
 
-            if (toLowerCase(gradeNode->GetNextGrade()->GetStudent()->getLastName()) == toLowerCase(lastName) && toLowerCase(gradeNode->GetNextGrade()->GetStudent()->getFirstName()) == toLowerCase(firstName))
+            if (toLowerCase(gradeNode->getNextGrade()->getStudent()->getLastName()) == toLowerCase(lastName) && toLowerCase(gradeNode->getNextGrade()->getStudent()->getFirstName()) == toLowerCase(firstName))
             {
-                gradeNode->SetNextGrade(gradeNode->GetNextGrade()->GetNextGrade());
+                gradeNode->setNextGrade(gradeNode->getNextGrade()->getNextGrade());
                 break;
             }
-            gradeNode = gradeNode->GetNextGrade();
+            gradeNode = gradeNode->getNextGrade();
         }
     }
-    if(toLowerCase(nameNode->GetStudent()->getLastName()) == toLowerCase(lastName) && toLowerCase(nameNode->GetStudent()->getFirstName()) == toLowerCase(firstName))
+    if(toLowerCase(nameNode->getStudent()->getLastName()) == toLowerCase(lastName) && toLowerCase(nameNode->getStudent()->getFirstName()) == toLowerCase(firstName))
     {
-        nodeToDelete = nameNode;
-        this->headName = nameNode->GetNextName();
+        this->headName = nameNode->getNextName();
     }
     else
     {
-        while (nameNode->GetNextName() != nullptr)
+        while (nameNode->getNextName() != nullptr)
         {
-            if (toLowerCase(nameNode->GetNextName()->GetStudent()->getLastName()) == toLowerCase(lastName) && toLowerCase(nameNode->GetNextName()->GetStudent()->getFirstName()) == toLowerCase(firstName))
+            if (toLowerCase(nameNode->getNextName()->getStudent()->getLastName()) == toLowerCase(lastName) && toLowerCase(nameNode->getNextName()->getStudent()->getFirstName()) == toLowerCase(firstName))
             {
-                nameNode->SetNextName(nameNode->GetNextName()->GetNextName());
+                nameNode->setNextName(nameNode->getNextName()->getNextName());
                 break;
             }
-            nameNode = nameNode->GetNextName();
+            nameNode = nameNode->getNextName();
         }
     }
 
@@ -336,7 +334,7 @@ string StudentLacedList::getStudentString(Student* student)
            setw(12) << left <<
            student->getLastName() <<
            setw(22) << left <<
-           Student::ClassificationToString(student->getClassification()) <<
+           Student::classificationToString(student->getClassification()) <<
            setw(5) << left <<
            student->getGrade();
 
@@ -347,14 +345,17 @@ string StudentLacedList::getStudentString(Student* student)
 * @param node the start node
 * @return string the string result
 */
-string StudentLacedList::GetGradesDescending(StudentNode* node)
+string StudentLacedList::getGradesDescending(StudentNode* node)
 {
+    if (node == nullptr) {
+        return "";
+    }
     ostringstream result;
-    result << this->getStudentString(node->GetStudent()) << endl;
+    result << this->getStudentString(node->getStudent()) << endl;
 
-    if (node->GetNextGrade() != nullptr)
+    if (node->getNextGrade() != nullptr)
     {
-        result << this->GetGradesDescending(node->GetNextGrade());
+        result << this->getGradesDescending(node->getNextGrade());
     }
 
     return result.str();
@@ -364,15 +365,18 @@ string StudentLacedList::GetGradesDescending(StudentNode* node)
 * @param node the start node
 * @return string the string result
 */
-string StudentLacedList::GetGradesAscending(StudentNode* node)
+string StudentLacedList::getGradesAscending(StudentNode* node)
 {
+    if (node == nullptr) {
+        return "";
+    }
     ostringstream result;
 
-    if (node->GetNextGrade() != nullptr)
+    if (node->getNextGrade() != nullptr)
     {
-        result << this->GetGradesAscending(node->GetNextGrade());
+        result << this->getGradesAscending(node->getNextGrade());
     }
-    result << this->getStudentString(node->GetStudent()) << endl;
+    result << this->getStudentString(node->getStudent()) << endl;
 
     return result.str();
 }
@@ -381,14 +385,17 @@ string StudentLacedList::GetGradesAscending(StudentNode* node)
 * @param node the start node
 * @return string the string result
 */
-string StudentLacedList::GetNamesDescending(StudentNode* node)
+string StudentLacedList::getNamesDescending(StudentNode* node)
 {
+    if (node == nullptr) {
+        return "";
+    }
     ostringstream result;
-    result << this->getStudentString(node->GetStudent()) << endl;
+    result << this->getStudentString(node->getStudent()) << endl;
 
-    if (node->GetNextName() != nullptr)
+    if (node->getNextName() != nullptr)
     {
-        result << this->GetNamesDescending(node->GetNextName());
+        result << this->getNamesDescending(node->getNextName());
     }
 
     return result.str();
@@ -398,15 +405,18 @@ string StudentLacedList::GetNamesDescending(StudentNode* node)
 * @param node the start node
 * @return string the string result
 */
-string StudentLacedList::GetNamesAscending(StudentNode* node)
+string StudentLacedList::getNamesAscending(StudentNode* node)
 {
+    if (node == nullptr) {
+        return "";
+    }
     ostringstream result;
 
-    if (node->GetNextName() != nullptr)
+    if (node->getNextName() != nullptr)
     {
-        result << this->GetNamesAscending(node->GetNextName());
+        result << this->getNamesAscending(node->getNextName());
     }
-    result << this->getStudentString(node->GetStudent()) << endl;
+    result << this->getStudentString(node->getStudent()) << endl;
 
     return result.str();
 }
@@ -415,14 +425,17 @@ string StudentLacedList::GetNamesAscending(StudentNode* node)
 * @param node the start node
 * @return string the string result
 */
-string StudentLacedList::GetClassificationsDescending(StudentNode* node)
+string StudentLacedList::getClassificationsDescending(StudentNode* node)
 {
+    if (node == nullptr) {
+        return "";
+    }
     ostringstream result;
-    result << this->getStudentString(node->GetStudent()) << endl;
+    result << this->getStudentString(node->getStudent()) << endl;
 
-    if (node->GetNextClassification() != nullptr)
+    if (node->getNextClassification() != nullptr)
     {
-        result << this->GetClassificationsDescending(node->GetNextClassification());
+        result << this->getClassificationsDescending(node->getNextClassification());
     }
     return result.str();
 }
@@ -431,15 +444,18 @@ string StudentLacedList::GetClassificationsDescending(StudentNode* node)
 * @param node the start node
 * @return string the string result
 */
-string StudentLacedList::GetClassificationsAscending(StudentNode* node)
+string StudentLacedList::getClassificationsAscending(StudentNode* node)
 {
+    if (node == nullptr) {
+        return "";
+    }
     ostringstream result;
 
-    if (node->GetNextClassification() != nullptr)
+    if (node->getNextClassification() != nullptr)
     {
-        result << this->GetClassificationsAscending(node->GetNextClassification());
+        result << this->getClassificationsAscending(node->getNextClassification());
     }
-    result << this->getStudentString(node->GetStudent()) << endl;
+    result << this->getStudentString(node->getStudent()) << endl;
 
     return result.str();
 }

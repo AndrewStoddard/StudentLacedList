@@ -10,15 +10,15 @@ class StudentNode
 public:
     StudentNode();
     virtual ~StudentNode();
-    StudentNode* GetNextName();
-    StudentNode* GetNextGrade();
-    StudentNode* GetNextClassification();
-    Student* GetStudent();
+    StudentNode* getNextName();
+    StudentNode* getNextGrade();
+    StudentNode* getNextClassification();
+    Student* getStudent();
 
-    void SetNextName(StudentNode* node);
-    void SetNextGrade(StudentNode* node);
-    void SetNextClassification(StudentNode* node);
-    void SetStudent(Student* newStudent);
+    void setNextName(StudentNode* node);
+    void setNextGrade(StudentNode* node);
+    void setNextClassification(StudentNode* node);
+    void setStudent(Student* newStudent);
 
 
 protected:

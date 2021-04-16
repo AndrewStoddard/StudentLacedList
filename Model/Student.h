@@ -19,7 +19,7 @@ public:
     static const string Postdoc;
     static const string Unknown;
 
-    static bool Equal(Student* student1, Student* student2);
+    static bool equals(Student* student1, Student* student2);
     //
     // Student classification
     //
@@ -40,8 +40,8 @@ public:
     const string& getLastName() const;
     Student::Classification getClassification() const;
     int getGrade() const;
-    static Classification StringToClassification(string& classification);
-    static string ClassificationToString(Student::Classification classification);
+    static Classification stringToClassification(string& classification);
+    static string classificationToString(Student::Classification classification);
 };
 
 }

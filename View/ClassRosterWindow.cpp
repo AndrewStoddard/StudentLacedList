@@ -150,7 +150,7 @@ void ClassRosterWindow::cbLoad(Fl_Widget* widget, void* data)
     cout << "Filename selected: " << window->getFilename() << endl;
 #endif
     if (window->getFilename() != "") {
-        window->lacedList = window->inputReader.ReadFile(window->getFilename());
+        window->lacedList = window->inputReader.readFile(window->getFilename());
         window->setSummaryText();
     }
 
@@ -218,7 +218,7 @@ void ClassRosterWindow::cbSave(Fl_Widget* widget, void* data)
     window->promptUserForFilename(Fl_File_Chooser::CREATE, "Class roster file to save to");
 
     if (window->getFilename() != "") {
-        FileOutputWriter::WriteLacedListToFile(window->getFilename(), window->lacedList);
+        FileOutputWriter::writeLacedListToFile(window->getFilename(), window->lacedList);
     }
 
 #ifdef DIAGNOSTIC_OUTPUT
@@ -252,7 +252,7 @@ void ClassRosterWindow::cbAddStudent(Fl_Widget* widget, void* data)
     Student* student = addStudent.getStudent();
 
     if (student != nullptr) {
-        window->lacedList.Insert(student);
+        window->lacedList.insertNode(student);
         window->setSummaryText();
     }
 
@@ -301,7 +301,7 @@ void ClassRosterWindow::cbDeleteStudent(Fl_Widget* widget, void* data)
     string firstname = deleteStudent.getFirstName();
     string lastname = deleteStudent.getLastName();
     if (firstname != "" && lastname != "") {
-        window->lacedList.Delete(firstname, lastname);
+        window->lacedList.deleteNode(firstname, lastname);
         window->setSummaryText();
     }
 
@@ -349,31 +349,31 @@ void ClassRosterWindow::setSummaryText()
     ClassRosterWindow::SortOrder order = this->getSortOrder();
     if (order == NAME_ASCENDING)
     {
-        result = this->lacedList.GetNamesAscending(this->lacedList.GetHeadName());
+        result = this->lacedList.getNamesAscending(this->lacedList.getHeadName());
     }
     else if (order == NAME_DESCENDING)
     {
-        result = this->lacedList.GetNamesDescending(this->lacedList.GetHeadName());
+        result = this->lacedList.getNamesDescending(this->lacedList.getHeadName());
     }
     else if (order == CLASSIFICATION_ASCENDING)
     {
-        result = this->lacedList.GetClassificationsAscending(this->lacedList.GetHeadClassification());
+        result = this->lacedList.getClassificationsAscending(this->lacedList.getHeadClassification());
     }
     else if (order == CLASSIFICATION_DESCENDING)
     {
-        result = this->lacedList.GetClassificationsDescending(this->lacedList.GetHeadClassification());
+        result = this->lacedList.getClassificationsDescending(this->lacedList.getHeadClassification());
     }
     else if (order == GRADE_ASCENDING)
     {
-        result = this->lacedList.GetGradesAscending(this->lacedList.GetHeadGrade());
+        result = this->lacedList.getGradesAscending(this->lacedList.getHeadGrade());
     }
     else if (order == GRADE_DESCENDING)
     {
-        result = this->lacedList.GetGradesDescending(this->lacedList.GetHeadGrade());
+        result = this->lacedList.getGradesDescending(this->lacedList.getHeadGrade());
     }
     else
     {
-        result = this->lacedList.GetNamesAscending(this->lacedList.GetHeadName());
+        result = this->lacedList.getNamesAscending(this->lacedList.getHeadName());
     }
 
 

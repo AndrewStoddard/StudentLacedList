@@ -78,7 +78,7 @@ Student::Classification Student::getClassification() const
 * @param student2 second student
 * @return bool
 */
-bool Student::Equal(Student* student1, Student* student2)
+bool Student::equals(Student* student1, Student* student2)
 {
     return toLowerCase(student1->getFirstName()) == toLowerCase(student2->getFirstName()) && toLowerCase(student1->getLastName()) == toLowerCase(student2->getLastName());
 }
@@ -87,7 +87,7 @@ bool Student::Equal(Student* student1, Student* student2)
 * @param classification The classification to convert
 * @return string
 */
-string Student::ClassificationToString(Student::Classification classification) {
+string Student::classificationToString(Student::Classification classification) {
     string result;
     if (classification == Student::DUALENROLLMENT) {
         result = Student::DualEnrollment;
@@ -107,7 +107,7 @@ string Student::ClassificationToString(Student::Classification classification) {
 * @param classification The classification to convert
 * @return Classification
 */
-Student::Classification Student::StringToClassification(string& classification) {
+Student::Classification Student::stringToClassification(string& classification) {
     Student::Classification result;
     if (toLowerCase(classification) == toLowerCase(Student::DualEnrollment)) {
         result = Student::DUALENROLLMENT;

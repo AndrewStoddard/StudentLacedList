@@ -10,7 +10,7 @@ class FileInputReader
     public:
         FileInputReader();
         virtual ~FileInputReader();
-        StudentLacedList ReadFile(string file);
+        StudentLacedList readFile(string file);
 
 
 

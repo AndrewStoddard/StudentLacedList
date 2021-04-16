@@ -10,29 +10,29 @@ class StudentLacedList
 public:
     StudentLacedList();
     virtual ~StudentLacedList();
-    StudentNode* GetHeadName();
-    StudentNode* GetHeadGrade();
-    StudentNode* GetHeadClassification();
+    StudentNode* getHeadName();
+    StudentNode* getHeadGrade();
+    StudentNode* getHeadClassification();
 
-    void SetHeadName(StudentNode* node);
-    void SetHeadGrade(StudentNode* node);
-    void SetHeadClassification(StudentNode* node);
+    void setHeadName(StudentNode* node);
+    void setHeadGrade(StudentNode* node);
+    void setHeadClassification(StudentNode* node);
 
-    void InsertIntoGradeLace(StudentNode* node);
-    void InsertIntoNameLace(StudentNode* node);
-    void InsertIntoClassLace(StudentNode* node);
+    void insertIntoGradeLace(StudentNode* node);
+    void insertIntoNameLace(StudentNode* node);
+    void insertIntoClassLace(StudentNode* node);
 
-    void Insert(Student* student);
+    void insertNode(Student* student);
 
-    void Delete(string& firstName, string& lastName);
+    void deleteNode(string& firstName, string& lastName);
 
 
-    string GetGradesDescending(StudentNode* node);
-    string GetGradesAscending(StudentNode* node);
-    string GetNamesDescending(StudentNode* node);
-    string GetNamesAscending(StudentNode* node);
-    string GetClassificationsDescending(StudentNode* node);
-    string GetClassificationsAscending(StudentNode* node);
+    string getGradesDescending(StudentNode* node);
+    string getGradesAscending(StudentNode* node);
+    string getNamesDescending(StudentNode* node);
+    string getNamesAscending(StudentNode* node);
+    string getClassificationsDescending(StudentNode* node);
+    string getClassificationsAscending(StudentNode* node);
 protected:
 
 private:
