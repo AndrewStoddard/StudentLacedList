@@ -203,7 +203,7 @@
 	<string>
 	"FileInputReader.h"
 
-1618523533 source:/home/astodda2/Desktop/GradeLacer/Model/Student.cpp
+1618539246 source:/home/astodda2/Desktop/GradeLacer/Model/Student.cpp
 	"Student.h"
 	"Utils.h"
 
@@ -274,10 +274,10 @@
 1618456778 /home/astodda2/Desktop/GradeLacer/Model/StudentNode.h
 	"Student.h"
 
-1618513945 source:/home/astodda2/Desktop/GradeLacer/Model/StudentNode.cpp
+1618537996 source:/home/astodda2/Desktop/GradeLacer/Model/StudentNode.cpp
 	"StudentNode.h"
 
-1618527861 source:/home/astodda2/Desktop/GradeLacer/DataTier/FileOutputWriter.cpp
+1618539483 source:/home/astodda2/Desktop/GradeLacer/DataTier/FileOutputWriter.cpp
 	"FileOutputWriter.h"
 	<sstream>
 	<fstream>
@@ -293,7 +293,7 @@
 	"Student.h"
 	"StudentLacedList.h"
 
-1618513717 source:/home/astodda2/Desktop/GradeLacer/DataTier/FileInputReader.cpp
+1618539711 source:/home/astodda2/Desktop/GradeLacer/DataTier/FileInputReader.cpp
 	"FileInputReader.h"
 	<vector>
 	<iostream>

@@ -10,16 +10,28 @@
 using namespace model;
 using namespace std;
 namespace datatier {
+/**
+* Constructor
+* @return FileInputReader
+*/
 FileInputReader::FileInputReader()
 {
     //ctor
 }
-
+/**
+* Deconstructor
+*
+*/
 FileInputReader::~FileInputReader()
 {
     //dtor
 }
 
+/**
+* Reads a csv file of students into a laced list
+* @param file the file name
+* @return StudentLacedList
+*/
 StudentLacedList FileInputReader::ReadFile(string file)
 {
     string line;
@@ -33,7 +45,11 @@ StudentLacedList FileInputReader::ReadFile(string file)
 
     return lacedList;
 }
-
+/**
+* Reads a student from a string line in csv format
+* @param line the csv line
+* @return Student*
+*/
 Student* FileInputReader::readStudentFromCSVString(string& line)
 {
     vector<string> items;

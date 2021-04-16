@@ -10,49 +10,76 @@ using namespace model;
 using namespace std;
 namespace model
 {
+/**
+* Constructor
+* @return StudentLacedList
+*/
 StudentLacedList::StudentLacedList()
 {
     this->headGrade = nullptr;
     this->headClassification = nullptr;
     this->headName = nullptr;
 }
-
+/**
+* Deconstructor
+*
+*/
 StudentLacedList::~StudentLacedList()
 {
 
 }
-
+/**
+* Gets the head of the name lace
+* @return StudentNode*
+*/
 StudentNode* StudentLacedList::GetHeadName()
 {
     return this->headName;
 }
-
+/**
+* Gets the head of the grade lace
+* @return StudentNode*
+*/
 StudentNode* StudentLacedList::GetHeadGrade()
 {
     return this->headGrade;
 }
-
+/**
+* Gets the head of the classification lace
+* @return StudentNode*
+*/
 StudentNode* StudentLacedList::GetHeadClassification()
 {
     return this->headClassification;
 }
-
-
+/**
+* Sets the head of the name lace
+* @param node the node to be set
+*/
 void StudentLacedList::SetHeadName(StudentNode* node)
 {
     this->headName = node;
 }
-
+/**
+* Sets the head of the grade lace
+* @param node the node to be set
+*/
 void StudentLacedList::SetHeadGrade(StudentNode* node)
 {
     this->headGrade = node;
 }
-
+/**
+* Sets the head of the classification lace
+* @param node the node to be set
+*/
 void StudentLacedList::SetHeadClassification(StudentNode* node)
 {
     this->headClassification = node;
 }
-
+/**
+* Inserts a stduent into the interlaced list
+* @param student the stiudent to be inserted
+*/
 void StudentLacedList::Insert(Student* student)
 {
     StudentNode* node = new StudentNode();
@@ -63,9 +90,10 @@ void StudentLacedList::Insert(Student* student)
 
 
 }
-
-
-
+/**
+* Inserts a node into the grade lace
+* @param node the node to be inserted
+*/
 void StudentLacedList::InsertIntoGradeLace(StudentNode* node)
 {
     if(this->headGrade == nullptr )
@@ -112,6 +140,10 @@ void StudentLacedList::InsertIntoGradeLace(StudentNode* node)
         currNode->SetNextGrade(node);
     }
 }
+/**
+* Inserts a node into the name lace
+* @param node the node to be inserted
+*/
 void StudentLacedList::InsertIntoNameLace(StudentNode* node)
 {
     if (this->headName == nullptr)
@@ -163,6 +195,10 @@ void StudentLacedList::InsertIntoNameLace(StudentNode* node)
     }
 
 }
+/**
+* Inserts a node into the class lace
+* @param node the node to be inserted
+*/
 void StudentLacedList::InsertIntoClassLace(StudentNode* node)
 {
     if (this->headClassification == nullptr)
@@ -210,6 +246,11 @@ void StudentLacedList::InsertIntoClassLace(StudentNode* node)
         currNode->SetNextClassification(node);
     }
 }
+/**
+* Deletes a node from all laces
+* @param firstName the firstname of the student in the lace
+* @param lastName the lastname of the student in the lace
+*/
 void StudentLacedList::Delete(string& firstName, string& lastName)
 {
     StudentNode* nameNode = this->GetHeadName();
@@ -281,7 +322,11 @@ void StudentLacedList::Delete(string& firstName, string& lastName)
 
 
 }
-
+/**
+* Gets a string of the passed student
+* @param student the student to get the string of
+* @return string the student string
+*/
 string StudentLacedList::getStudentString(Student* student)
 {
     ostringstream result;
@@ -297,7 +342,11 @@ string StudentLacedList::getStudentString(Student* student)
 
     return result.str();
 }
-
+/**
+* Gets the string of all nodes after passed node in the grade lace descending
+* @param node the start node
+* @return string the string result
+*/
 string StudentLacedList::GetGradesDescending(StudentNode* node)
 {
     ostringstream result;
@@ -310,7 +359,11 @@ string StudentLacedList::GetGradesDescending(StudentNode* node)
 
     return result.str();
 }
-
+/**
+* Gets the string of all nodes after passed node in the grade lace ascending
+* @param node the start node
+* @return string the string result
+*/
 string StudentLacedList::GetGradesAscending(StudentNode* node)
 {
     ostringstream result;
@@ -323,7 +376,11 @@ string StudentLacedList::GetGradesAscending(StudentNode* node)
 
     return result.str();
 }
-
+/**
+* Gets the string of all nodes after passed node in the name lace descending
+* @param node the start node
+* @return string the string result
+*/
 string StudentLacedList::GetNamesDescending(StudentNode* node)
 {
     ostringstream result;
@@ -336,7 +393,11 @@ string StudentLacedList::GetNamesDescending(StudentNode* node)
 
     return result.str();
 }
-
+/**
+* Gets the string of all nodes after passed node in the name lace ascending
+* @param node the start node
+* @return string the string result
+*/
 string StudentLacedList::GetNamesAscending(StudentNode* node)
 {
     ostringstream result;
@@ -349,7 +410,11 @@ string StudentLacedList::GetNamesAscending(StudentNode* node)
 
     return result.str();
 }
-
+/**
+* Gets the string of all nodes after passed node in the classification lace descending
+* @param node the start node
+* @return string the string result
+*/
 string StudentLacedList::GetClassificationsDescending(StudentNode* node)
 {
     ostringstream result;
@@ -361,7 +426,11 @@ string StudentLacedList::GetClassificationsDescending(StudentNode* node)
     }
     return result.str();
 }
-
+/**
+* Gets the string of all nodes after passed node in the classification lace ascending
+* @param node the start node
+* @return string the string result
+*/
 string StudentLacedList::GetClassificationsAscending(StudentNode* node)
 {
     ostringstream result;

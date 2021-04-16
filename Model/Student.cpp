@@ -72,12 +72,21 @@ Student::Classification Student::getClassification() const
 {
     return this->classification;
 }
-
+/**
+* Checks if two students are equal
+* @param student1 first student
+* @param student2 second student
+* @return bool
+*/
 bool Student::Equal(Student* student1, Student* student2)
 {
     return toLowerCase(student1->getFirstName()) == toLowerCase(student2->getFirstName()) && toLowerCase(student1->getLastName()) == toLowerCase(student2->getLastName());
 }
-
+/**
+* Converts classification to a string
+* @param classification The classification to convert
+* @return string
+*/
 string Student::ClassificationToString(Student::Classification classification) {
     string result;
     if (classification == Student::DUALENROLLMENT) {
@@ -93,7 +102,11 @@ string Student::ClassificationToString(Student::Classification classification) {
     }
     return result;
 }
-
+/**
+* Converts string to a classification
+* @param classification The classification to convert
+* @return Classification
+*/
 Student::Classification Student::StringToClassification(string& classification) {
     Student::Classification result;
     if (toLowerCase(classification) == toLowerCase(Student::DualEnrollment)) {
