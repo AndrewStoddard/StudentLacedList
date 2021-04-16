@@ -235,7 +235,7 @@
 	"FileOutputWriter.h"
 	"StudentLacedList.h"
 
-1618525481 source:/home/astodda2/Desktop/GradeLacer/View/ClassRosterWindow.cpp
+1618532571 source:/home/astodda2/Desktop/GradeLacer/View/ClassRosterWindow.cpp
 	"ClassRosterWindow.h"
 	"DeleteStudentWindow.h"
 	"AddStudentWindow.h"
@@ -244,6 +244,7 @@
 	<Fl/Fl_File_Chooser.H>
 	<iostream>
 	"Student.h"
+	"FileOutputWriter.h"
 
 1617028071 /home/astodda2/Desktop/GradeLacer/View/DeleteStudentWindow.h
 	"OKCancelWindow.h"
@@ -257,7 +258,7 @@
 1617028044 source:/home/astodda2/Desktop/GradeLacer/View/OKCancelWindow.cpp
 	"OKCancelWindow.h"
 
-1618524747 source:/home/astodda2/Desktop/GradeLacer/Model/StudentLacedList.cpp
+1618534061 source:/home/astodda2/Desktop/GradeLacer/Model/StudentLacedList.cpp
 	"StudentLacedList.h"
 	"StudentNode.h"
 	"Student.h"
@@ -276,8 +277,13 @@
 1618513945 source:/home/astodda2/Desktop/GradeLacer/Model/StudentNode.cpp
 	"StudentNode.h"
 
-1618442986 source:/home/astodda2/Desktop/GradeLacer/DataTier/FileOutputWriter.cpp
+1618527861 source:/home/astodda2/Desktop/GradeLacer/DataTier/FileOutputWriter.cpp
 	"FileOutputWriter.h"
+	<sstream>
+	<fstream>
+	<iostream>
+	"Student.h"
+	"StudentLacedList.h"
 
 1618527842 /home/astodda2/Desktop/GradeLacer/DataTier/FileOutputWriter.h
 	"StudentLacedList.h"

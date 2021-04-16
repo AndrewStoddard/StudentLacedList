@@ -11,7 +11,10 @@ StudentNode::StudentNode()
 
 StudentNode::~StudentNode()
 {
-
+    delete(this->nextClassification);
+    delete(this->nextGrade);
+    delete(this->nextName);
+    delete(this->student);
 }
 
 

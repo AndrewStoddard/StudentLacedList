@@ -1,0 +1,5 @@
+Barnes,Bucky,GRAD,85
+Parker,Peter,DUALENROLLMENT,95
+Rogers,Steve,GRAD,80
+Stark,Tony,POSTDOC,100
+Stoddard,Andrew,UNDERGRAD,90

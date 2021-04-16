@@ -13,6 +13,8 @@
 #include <iostream>
 #endif
 #include "Student.h"
+#include "FileOutputWriter.h"
+using namespace datatier;
 using namespace model;
 
 namespace view
@@ -214,6 +216,10 @@ void ClassRosterWindow::cbSave(Fl_Widget* widget, void* data)
 {
     ClassRosterWindow* window = (ClassRosterWindow*)data;
     window->promptUserForFilename(Fl_File_Chooser::CREATE, "Class roster file to save to");
+
+    if (window->getFilename() != "") {
+        FileOutputWriter::WriteLacedListToFile(window->getFilename(), window->lacedList);
+    }
 
 #ifdef DIAGNOSTIC_OUTPUT
     cout << "Filename selected: " << window->getFilename() << endl;
